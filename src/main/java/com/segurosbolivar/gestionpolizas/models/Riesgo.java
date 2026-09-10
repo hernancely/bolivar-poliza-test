@@ -27,7 +27,7 @@ public class Riesgo {
     @Column(nullable = false)
     private EstadoRiesgo estado;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "poliza_id", nullable = false)
     private Poliza poliza;
 
