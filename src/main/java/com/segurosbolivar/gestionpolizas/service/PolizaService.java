@@ -6,7 +6,7 @@ import com.segurosbolivar.gestionpolizas.dto.response.RiesgoResponseDTO;
 
 import java.util.List;
 
-public interface PolizaService {
+public interface    PolizaService {
     List<PolizaResponseDTO> listar(String tipo, String estado);
 
     List<RiesgoResponseDTO> listarRiesgos(Long id);
@@ -17,5 +17,4 @@ public interface PolizaService {
 
     RiesgoResponseDTO agregarRiesgo(Long id, RiesgoRequestDTO request);
 
-    void cancelarRiesgo(Long riesgoId);
 }

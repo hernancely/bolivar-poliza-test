@@ -1,4 +1,4 @@
-package com.segurosbolivar.gestionpolizas.exceptions;
+package com.segurosbolivar.gestionpolizas.exception;
 
 public class ReglaNegocioException extends RuntimeException{
     public ReglaNegocioException(String mensaje) {

@@ -1,4 +1,4 @@
-package com.segurosbolivar.gestionpolizas.exceptions;
+package com.segurosbolivar.gestionpolizas.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

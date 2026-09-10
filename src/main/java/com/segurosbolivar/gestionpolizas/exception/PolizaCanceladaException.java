@@ -1,4 +1,4 @@
-package com.segurosbolivar.gestionpolizas.exceptions;
+package com.segurosbolivar.gestionpolizas.exception;
 
 public class PolizaCanceladaException extends RuntimeException{
     public PolizaCanceladaException(Long id) {

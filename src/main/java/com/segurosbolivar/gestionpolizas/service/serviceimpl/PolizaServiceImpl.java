@@ -3,10 +3,9 @@ package com.segurosbolivar.gestionpolizas.service.serviceimpl;
 import com.segurosbolivar.gestionpolizas.dto.request.RiesgoRequestDTO;
 import com.segurosbolivar.gestionpolizas.dto.response.PolizaResponseDTO;
 import com.segurosbolivar.gestionpolizas.dto.response.RiesgoResponseDTO;
-import com.segurosbolivar.gestionpolizas.exceptions.PolizaCanceladaException;
-import com.segurosbolivar.gestionpolizas.exceptions.PolizaNoEncontradaException;
-import com.segurosbolivar.gestionpolizas.exceptions.ReglaNegocioException;
-import com.segurosbolivar.gestionpolizas.exceptions.RiesgoNoEncontradoException;
+import com.segurosbolivar.gestionpolizas.exception.PolizaCanceladaException;
+import com.segurosbolivar.gestionpolizas.exception.PolizaNoEncontradaException;
+import com.segurosbolivar.gestionpolizas.exception.ReglaNegocioException;
 import com.segurosbolivar.gestionpolizas.mapper.PolizaMapper;
 import com.segurosbolivar.gestionpolizas.mapper.RiesgoMapper;
 import com.segurosbolivar.gestionpolizas.models.Poliza;
@@ -15,7 +14,6 @@ import com.segurosbolivar.gestionpolizas.models.enums.EstadoPoliza;
 import com.segurosbolivar.gestionpolizas.models.enums.EstadoRiesgo;
 import com.segurosbolivar.gestionpolizas.models.enums.TipoPoliza;
 import com.segurosbolivar.gestionpolizas.repository.PolizaRepository;
-import com.segurosbolivar.gestionpolizas.repository.RiesgoRepository;
 import com.segurosbolivar.gestionpolizas.service.CoreNotificationService;
 import com.segurosbolivar.gestionpolizas.service.PolizaService;
 import jakarta.transaction.Transactional;
@@ -32,7 +30,6 @@ public class PolizaServiceImpl implements PolizaService {
     private static final BigDecimal IPC_ACTUAL = new BigDecimal("0.065");
 
     private final PolizaRepository polizaRepository;
-    private final RiesgoRepository riesgoRepository;
     private final CoreNotificationService coreNotificationService;
 
     @Override
@@ -125,19 +122,6 @@ public class PolizaServiceImpl implements PolizaService {
         return RiesgoMapper.toDTO(riesgo);
     }
 
-    @Override
-    @Transactional
-    public void cancelarRiesgo(Long riesgoId) {
-        Riesgo riesgo = riesgoRepository.findById(riesgoId)
-                .orElseThrow(() -> new RiesgoNoEncontradoException(riesgoId));
-
-        riesgo.cancelar();
-        riesgoRepository.save(riesgo);
-
-        coreNotificationService.notificarEvento("ACTUALIZACION", riesgo.getPoliza().getId());
-    }
-
-    // --- Helpers privados ---
 
     private Poliza obtenerPoliza(Long id) {
         return polizaRepository.findById(id)

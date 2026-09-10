@@ -1,6 +1,6 @@
 package com.segurosbolivar.gestionpolizas.config;
 
-import com.segurosbolivar.gestionpolizas.exceptions.*;
+import com.segurosbolivar.gestionpolizas.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
