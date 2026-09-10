@@ -62,11 +62,11 @@ public class Poliza {
     }
 
     public boolean esColectiva() {
-        return this.tipo == TipoPoliza.COLECTIVA;
+        return this.tipo != TipoPoliza.COLECTIVA;
     }
 
     public void agregarRiesgo(Riesgo riesgo) {
-        if (!esColectiva() && !this.riesgos.isEmpty()) {
+        if (esColectiva() && !this.riesgos.isEmpty()) {
             throw new IllegalStateException("Una póliza individual solo puede tener 1 riesgo");
         }
         riesgo.setPoliza(this);

@@ -1,7 +1,5 @@
 package com.segurosbolivar.gestionpolizas.controller;
 
-
-import com.segurosbolivar.gestionpolizas.service.PolizaService;
 import com.segurosbolivar.gestionpolizas.service.RiesgoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

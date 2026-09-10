@@ -100,7 +100,7 @@ public class PolizaServiceImpl implements PolizaService {
     public RiesgoResponseDTO agregarRiesgo(Long polizaId, RiesgoRequestDTO request) {
         Poliza poliza = obtenerPoliza(polizaId);
 
-        if (!poliza.esColectiva()) {
+        if (poliza.esColectiva()) {
             throw new ReglaNegocioException("Solo pólizas de tipo Colectiva pueden agregar riesgos");
         }
 
