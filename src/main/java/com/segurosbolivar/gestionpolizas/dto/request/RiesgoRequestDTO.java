@@ -1,6 +1,5 @@
 package com.segurosbolivar.gestionpolizas.dto.request;
 
-import com.segurosbolivar.gestionpolizas.models.enums.EstadoRiesgo;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
