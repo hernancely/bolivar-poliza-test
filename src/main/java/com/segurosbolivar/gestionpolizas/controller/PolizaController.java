@@ -4,6 +4,7 @@ import com.segurosbolivar.gestionpolizas.dto.request.RiesgoRequestDTO;
 import com.segurosbolivar.gestionpolizas.dto.response.PolizaResponseDTO;
 import com.segurosbolivar.gestionpolizas.dto.response.RiesgoResponseDTO;
 import com.segurosbolivar.gestionpolizas.service.PolizaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -16,4 +16,6 @@ public interface PolizaService {
     PolizaResponseDTO cancelar(Long id);
 
     RiesgoResponseDTO agregarRiesgo(Long id, RiesgoRequestDTO request);
+
+    void cancelarRiesgo(Long riesgoId);
 }

@@ -13,7 +13,5 @@ public interface PolizaRepository extends JpaRepository<Poliza,Long> {
 
     List<Poliza> findByTipo(TipoPoliza tipo);
 
-    List<Poliza> findBYEstado(EstadoPoliza estado);
-
-
+    List<Poliza> findByEstado(EstadoPoliza estadoEnum);
 }
